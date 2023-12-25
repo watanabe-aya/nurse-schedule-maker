@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+
+      <div class="row py-5">
+        <% if nurse_signed_in? %>
+          <h3><%= current_nurse.ward.ward_name %> 病棟　本日の日勤メンバー</h3>
+        <% else %>
+          <h3>本日の日勤メンバー</h3>
+        <% end %>
+      </div>
+
+      <div class="row p-4 shadow">
+        <% if nurse_signed_in? %>
+          <% @nurses.each do |nurse| %>
+          <div class="col-2">
+            <strong><%= nurse.name %></strong>
+          </div>
+          <% end %>
+        <% else %>
+          看護師ログイン後、サイトをご利用いただけます。
+        <% end %>
+      </div>
+
+      <% if nurse_signed_in? && @schedules.blank? %>
+      <div class="row p-4 mt-3 mx-auto">
+        <div class="col-md-5 col-8 mx-auto">
+          <%= form_with model: @schedule, local:true do |f| %>
+            <%= f.hidden_field :nurse_id, value: current_nurse.id %>
+            <%= f.submit "本日のスケジュールを作成する", class: "btn btn-secondary btn-lg" %>
+            <div class="small">スケジュールは一日一つ作成できます</div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+
+
+      <div class="row pt-5 pb-3">
+        <h3>使い方</h3>
+      </div>
+      <div class="row p-4 shadow top">
+
+        <div class="row py-2">
+          <div class="col-12">
+            <strong><i class="fas fa-calendar-day"></i> マイスケジュール</strong>
+          </div>
+          <div class="col-12 mx-2">
+            本日の自分のスケジュールを確認できます。1日１回スケジュールを作成でき、未作成の場合はスケジュール作成ボタンが表示されます。
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col-12">
+            <strong><i class="fas fa-calendar-alt"></i> 出勤者のスケジュール</strong>
+          </div>
+          <div class="col-12 mx-2">
+            本日出勤予定の看護師（同病棟）のスケジュールを閲覧できます。名前をクリックするとレビューページへ切り替わります。
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col-12">
+            <strong><i class="fas fa-user-cog"></i> マイページ</strong>
+          </div>
+          <div class="col-12 mx-2">
+            名前、病棟の編集ができます。過去のスケジュールとレビューを閲覧できます。
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>

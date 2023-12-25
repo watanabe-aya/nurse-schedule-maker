@@ -1,0 +1,10 @@
+<script>
+  $('#star').raty({
+   number: 3,
+   score : <%= task.rate %>,
+   size : 36,
+   starOff: '<%= asset_path('star-off.png') %>',
+   starOn : '<%= asset_path('star-on.png') %>',
+   scoreName: 'task[rate]'
+});
+</script>

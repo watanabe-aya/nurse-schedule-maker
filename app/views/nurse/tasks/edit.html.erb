@@ -1,0 +1,28 @@
+<!--入力に不備があった場合エラーが表示される-->
+<div class="notice">
+  <%= alert %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+
+      <div class="row py-5">
+        <h3>タスク編集</h3>
+      </div>
+
+
+      <div class="row p-5 shadow">
+        <!--タスク入力フォーム-->
+        <%= render 'task_form', task: @task, task_list: @task_list, method: :patch, submit: 'タスク編集' %>
+      </div>
+
+      <div class="row p-4">
+        <%= link_to schedule_path(@task_list.schedule.id), class: "body_link lead" do %>
+          <i class="fas fa-arrow-circle-left"></i>タスク編集をやめる
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

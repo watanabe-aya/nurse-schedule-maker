@@ -1,0 +1,221 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+
+// 背景色の設定
+html, body{
+  height: 100%;
+  background-image: image-url("p0119_m.png");
+  background-size: contain;
+  font-family: 'Kosugi Maru', sans-serif, 'arial';
+  color:#2b2b2b;
+}
+
+.navbar-brand{
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold ;
+  font-size: 24pt
+}
+
+// コンテンツ部分の設定
+.shadow{
+  background: #fffff9;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+}
+// ヘッダーのリンクの色
+.header_link{
+  text-decoration: none;
+  color: #fffff9 ;
+}
+
+// 見出し
+h3 {
+  border-left: 6px solid #595857;
+  color:#2b2b2b ;
+}
+// リンクの色
+.admin_link{
+  text-decoration: none;
+  color: #006888 ;
+}
+
+.body_link{
+  text-decoration: none;
+  color: #006888 ;
+}
+.task_link{
+  text-decoration: none;
+}
+.task_status_link{
+  text-decoration:underline;
+  text-decoration-color: #fffff9;;
+}
+.line-through{
+  text-decoration: line-through;
+}
+
+
+// fontawesomeの色
+.fa-pencil-alt {
+  color: #006888 ;
+}
+.fa-trash{
+  color: #006888 ;
+}
+.fa-plus-square{
+  color: #006888 ;
+}
+.fa-square{
+  color: #2b2b2b ;
+}
+.fa-check-square{
+  color: #2b2b2b ;
+}
+
+
+// ヘッダーログイン中看護師表示の文字色
+.login_nurse{
+  color: #e6bfb2 ;
+}
+
+// 文字のサイズを小さくするクラス
+.small{
+  font-size:80% ;
+}
+// 文字のサイズを太くくするクラス
+.learge{
+  font-weight: bold ;
+}
+// スケジュールタイトルの装飾
+.schedule_title{
+  color: #504946 ;
+  font-size:80% ;
+}
+
+// タスクの優先度によって、アンダーラインの色を変更する
+.task_rate_1{
+  text-decoration:underline;
+  text-decoration-color: #a7d28d;
+  text-decoration-thickness: 4px;
+}
+.task_rate_2{
+  text-decoration:underline;
+  text-decoration-color: #eec362;
+  text-decoration-thickness: 4px;
+}
+.task_rate_3{
+  text-decoration:underline;
+  text-decoration-color: #e8383d;
+  text-decoration-thickness: 4px;
+}
+
+
+// タスクの表示される位置
+.task_position-wrp{
+  position: relative;
+  width: 100%;
+}
+
+.task_position{
+  position: relative;
+  left: var(--task_p);
+  width: 10vw;
+}
+
+.scale_position-wrp{
+  position: relative;
+  width: 100%;
+}
+
+.scale_position{
+  position: absolute;
+  left: var(--task_p);
+}
+
+
+// 時間入力フォームの横幅
+.time_form {
+  width: auto;
+  display: inline-block;
+  }
+
+// ボタンの色変更
+.btn-dark{
+  background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+  border-color: #ffe9a9;
+  color:#595857 ;
+}
+
+.btn-dark:hover {
+  color: #f8f4e6;
+  border-color: #eebbcb;
+}
+
+.btn-secondary{
+  background-color: #54917f;
+  border-color: #f8f4e6;
+  color:#f8f4e6 ;
+}
+.btn-danger{
+  background-color: #b33e5c;
+  border-color: #b33e5c;
+  color:#f8f4e6 ;
+}
+
+// フラッシュメッセージの表示
+.notice {
+  color: #f8f4e6;
+  text-align: center;
+  background-color: #ed6d35;
+}
+
+//ページネーション自体のデザイン*
+.pagination>li>a {
+  border: none;
+  color: #2b2b2b;
+}
+
+// 表示しているページ番号のデザイン
+.pagination>.active>a {
+  background-color: #006888;
+  border-radius: 30px;
+}
+
+//ホバー時のデザイン
+.pagination>li>a:hover {
+  border-radius: 30px;
+  background-color: #006888;
+  color: #f8f4e6;
+}
+
+
+// ログインページのレスポンシブ
+@media (min-width: 992px){
+  .login {
+    width: 25%;
+    }
+  }
+
+// サインアップページのレスポンシブ
+@media (min-width: 992px){
+  .signup {
+    width: 50%;
+    }
+  }
+
+.top{
+  color: #006888;
+}

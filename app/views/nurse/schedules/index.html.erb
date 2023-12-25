@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+
+      <!--見出し-->
+      <div class="row pt-5 pb-3">
+        <h3>本日のスケジュール一覧</h3>
+        <div class="small">Ns名をクリックするとレビューページに移ります</div>
+      </div>
+
+
+      <!--スケジュール表示-->
+      <% @schedules.each do |schedule| %>
+      <div class= "row mb-3">
+        <%= link_to "Ns. #{ schedule.nurse.name }", schedule_path(schedule), class: "body_link" %>
+        <%= render 'schedule', task_lists: TaskList.where(schedule_id: schedule), task_list: @task_list, schedule: schedule, nums: @nums %>
+      </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

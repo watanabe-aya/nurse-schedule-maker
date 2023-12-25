@@ -1,0 +1,34 @@
+<div class="notice">
+  <%= render "nurse/shared/error_messages", resource: resource %>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+
+      <div class="row py-5">
+          <h3>Admin Login</h3>
+      </div>
+
+      <div class="row p-4 shadow login">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-grop p-2">
+            <%= f.label :name, "名前" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
+
+          <div class="form-grop p-2">
+            <%= f.label :password, "パスワード" %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+
+          <div class="form-grop p-3">
+            <%= f.submit "ログイン", class: "btn btn-sm btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

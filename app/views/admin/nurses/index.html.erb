@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+
+      <div class="row py-5">
+        <h3><%= current_admin.ward.ward_name %> 病棟　看護師出勤登録（日勤）　</h3>
+      </div>
+
+
+      <div class="row p-5 shadow">
+        <div class="col-6">
+          <table class="table p-3">
+            <thead>
+              <tr>
+                <th>登録看護師名</th>
+                <th>勤務状況変更（クリックすると切り替わります）</th>
+              </tr>
+            </thead>
+
+            <% @nurses.each do |nurse| %>
+            <tbody>
+              <tr>
+                <td><%= nurse.name %></td>
+                <td>
+                  <!--# 看護師が出勤中だった場合、リンクをクリックすると休日に変更-->
+                  <% if nurse.attendance == true %>
+                    <%= link_to "出勤中", admin_nurse_path(nurse), method: :PATCH, class: "admin_link" %>
+                  <!--# 看護師が休日だった場合、リンクをクリックすると出勤中に変更-->
+                  <% else %>
+                    <%= link_to "休日", admin_nurse_path(nurse), method: :PATCH, class: "admin_link" %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
